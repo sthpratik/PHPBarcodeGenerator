@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - '3080:80'
+      - '3443:443'
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      # - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./src:/etc/nginx/html
+    networks:
+      # - hub-agent_default
+      - barcode
+
+  phpfpm:
+    image: 'bitnami/php-fpm:latest'
+    volumes:
+      - ./src:/app
+    # ports:
+    #   - '9000:9000'
+    networks:
+     - barcode
+
+networks:
+  # hub-agent_default:
+  #   external: true 
+  barcode:
+    name: barcode
