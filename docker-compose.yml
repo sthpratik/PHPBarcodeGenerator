@@ -5,12 +5,13 @@ services:
     ports:
       - '3080:80'
       - '3443:443'
+    hostname: barcode
     volumes:
       - ./conf.d:/etc/nginx/conf.d
       # - ./nginx.conf:/etc/nginx/nginx.conf
       - ./src:/etc/nginx/html
     networks:
-      # - hub-agent_default
+      - softechpro
       - barcode
 
   phpfpm:
@@ -23,7 +24,7 @@ services:
      - barcode
 
 networks:
-  # hub-agent_default:
-  #   external: true 
+  softechpro:
+    external: true 
   barcode:
     name: barcode
