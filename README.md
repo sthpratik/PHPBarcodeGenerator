@@ -45,7 +45,7 @@ Go to the project directory
   cd PHPBarcodeGenerator
 ```
 
-Build container
+Build container. Not Required. Docker compose up should trigger creating image
 
 ```bash
   docker build -t phpbarcodegenerator .
@@ -60,6 +60,11 @@ Start the server
 Access it on port 3080
 ```bash
   http://localhost:3080/?type=QRCode&data=https://www.etsy.com/shop/CreateGiftStudio
+```
+
+To stop service 
+```bash
+  docker compose down
 ```
 
 ## Deployment

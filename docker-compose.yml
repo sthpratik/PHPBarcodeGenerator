@@ -16,6 +16,8 @@ services:
     image: 'phpbarcodegenerator:latest'
     volumes:
       - ./src:/app
+    build:
+      dockerfile: ./Dockerfile
     networks:
      - barcode
 
