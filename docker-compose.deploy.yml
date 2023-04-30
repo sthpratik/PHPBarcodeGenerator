@@ -8,17 +8,23 @@ services:
     hostname: barcode
     volumes:
       - ./conf.d:/etc/nginx/conf.d
+      # - ./nginx.conf:/etc/nginx/nginx.conf
       - ./src:/etc/nginx/html
     networks:
+      - softechpro
       - barcode
 
   phpfpm:
-    image: 'phpbarcodegenerator:latest'
+    image: 'sthpratik/phpbarcodegenerator:latest'
     volumes:
       - ./src:/app
+    # ports:
+    #   - '9000:9000'
     networks:
      - barcode
 
 networks:
+  softechpro:
+    external: true 
   barcode:
     name: barcode
