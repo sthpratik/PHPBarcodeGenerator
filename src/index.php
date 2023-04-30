@@ -1,6 +1,5 @@
 <?php   
 
-include_once('../global.php');
 /*
  * PHP QR Code encoder
  *
@@ -28,7 +27,7 @@ include_once('../global.php');
     
     //set it to writable location, a place for temp generated PNG files
 
-    $code = isset($_REQUEST['data']) ? $_REQUEST['data'] :'4400054';
+    $code = isset($_REQUEST['data']) ? $_REQUEST['data'] :'http://softechpro.co';
 
     function QRCodeGenerator($code)
     {              

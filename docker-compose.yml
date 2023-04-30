@@ -15,7 +15,7 @@ services:
       - barcode
 
   phpfpm:
-    image: 'bitnami/php-fpm:latest'
+    image: 'sthpratik/phpbarcodegenerator:latest'
     volumes:
       - ./src:/app
     # ports:
