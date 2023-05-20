@@ -49,14 +49,14 @@
         QRcode::png($code, false, $errorCorrectionLevel, $matrixPointSize, 2);    
                   
     }
-        
-    switch ($_REQUEST['type']) {
-        case "EAN8":
+    
+    switch (strtolower($_REQUEST['type'])) {
+        case "ean8":
             header("Content-type: image/svg+xml");
             include 'EAN8/EAN8.php';                 
             echo draw($code);
             break;
-        case "EAN13":
+        case "ean13":
             include 'EAN13/EAN13.php';
             echo draw($code);
             break;
@@ -66,15 +66,15 @@
         //     header("Content-type: image/svg+xml");
         //     echo draw($code);
         //     break;
-        case "Code39":
+        case "code39":
             include 'Code39/Code39.php';
             echo draw($code);
             break;
-        case "Code128":
+        case "code128":
             include 'Code128/Code128.php';
             echo draw($code);
             break;
-        case "UPCA":
+        case "upca":
             include 'UPCA/UPCA.php';
             echo draw($code);
             break; 
